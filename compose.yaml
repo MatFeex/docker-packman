@@ -10,6 +10,8 @@ services:
         source: todo-app-volume
         target: /var/lib/postgresql/data
     restart: on-failure
+    expose:
+      - 5432
     ports:
       - "5432:5432"
 
@@ -26,6 +28,8 @@ services:
     restart: on-failure
     depends_on:
       - database
+    expose:
+      - 5000
     ports:
       - "3000:5000"
 
@@ -44,8 +48,10 @@ services:
     depends_on:
       - flask
       - database
+    expose:
+      - 5173
     ports:
-      - "3001:5173"
+      - "80:5173"
 
 volumes:
   todo-app-volume:
