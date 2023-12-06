@@ -33,7 +33,7 @@ services:
     build:
       context: ./todo-app-frontend
     container_name: todo-app-frontend
-    command: sh -c "yarn global add serve && serve -s -l 5173 dist"
+    command: sh -c "yarn global add serve && yarn global add vite && serve -s -l 5173 dist"
     networks:
       - todo-app
     volumes:
